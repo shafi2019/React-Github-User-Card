@@ -3,3 +3,72 @@
   background-image: url(https://images.pexels.com/photos/236047/pexels-photo-236047.jpeg?cs=srgb&dl=clouds-cloudy-farm-236047.jpg&fm=jpg);
   box-sizing: border-box;
 }
+
+.appContainer {
+  width: 100%;
+  display: flex;
+}
+
+.searchForm {
+  width: 100%;
+  text-align: center;
+  height: 80px;
+  display: flex;
+  flex-flow: column;
+  margin: 20px;
+  
+}
+
+.searchForm input {
+  height: 30px;
+  width: 200px;
+  margin: 2%;
+  border: 1px black solid;
+  border-radius: 5px;
+  font-size: 15px;
+  color: black;
+}
+
+.searchForm button {
+  height: 30px;
+  width: 80px;
+  padding: 5px;
+  border-radius: 2px;
+  border: 1px black solid;
+  background-color: lightblue;
+}
+
+.userCard {
+  width: 100%;
+  margin: 5% 5%;
+  border-radius: 5px;
+  background-color: #00bfff;
+  height: 600px;
+  box-shadow: 10px 10px 10px grey;
+}
+
+.userImage {
+  width: 100%;
+}
+
+.userInfo {
+  width: 100%;
+  margin: 0 0%;
+  text-align: center;
+}
+
+.userName {
+  margin-bottom: 10px;
+}
+
+.userBio {
+  margin: 0;
+}
+
+.followersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+
