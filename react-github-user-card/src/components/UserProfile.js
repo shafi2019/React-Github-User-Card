@@ -22,6 +22,23 @@ class UserProfile extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  submitHandler = e => {
+    e.preventDefault();
+    axios
+      .get(`https://api.github.com/users/${this.state.search}`)
+      .then(response => this.setState({ user: response.data }))
+      .catch(error => console.log("something went wrong"));
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(`user profile updated`);
+    if (prevState.search !== this.state.search) {
+      axios
+        .get(`https://api.github.com/users/${this.state.search}`)
+        .then(response => this.setState({ user: response.data }))
+        .catch(error => console.log("something went wrong"));
+    }
+  }
 
   render() {
     console.log(`user profile rendered`);
@@ -38,7 +55,16 @@ class UserProfile extends Component {
         <h2>User {this.state.user.name}'s followers</h2>
 
         <FollowerList username={this.state.user.name} />
-
+        <form className="searchForm" onSubmit={this.submitHandler}>
+          <input
+            type="text"
+            name="search"
+            value={this.state.search}
+            onChange={this.changeHandler}
+            placeholder="search a github username"
+          />
+          <button>Search</button>
+        </form>
       </div>
     );
   }
